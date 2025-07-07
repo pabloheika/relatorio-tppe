@@ -1,0 +1,18 @@
+# Arquivo .gitignore para o projeto UnBTeX
+
+# Arquivos gerados pelo LaTeX
+*.aux
+*.bbl
+*.blg
+*.brf
+*.lof
+*.log
+*.lot
+*.nlo
+*.out
+*.toc
+
+# Arquivos de figuras convertidas
+*-converted-to.pdf
+
+
