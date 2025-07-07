@@ -1,161 +1,150 @@
-# UnBTeX: A class for bachelor, master, and doctoral thesis at the
-# University of Brasilia (UnB), Brazil.
-# Version 1.5.5 2025/04/10
+# UnBTeX: Uma classe para teses de bacharelado, mestrado e doutorado na
+# Universidade de Brasília (UnB), Brasil.
+# Versão 1.5.5 10/04/2025
 
-Copyright (C) 2021-2025 by Henrique C. Ferreira <hcferreira@unb.br>
+Copyright (C) 2021-2025 por Henrique C. Ferreira <hcferreira@unb.br>
 
-The package provides a class based on abnTeX and compatible with pdflatex 
-and bibtex to prepare theses for the University of Brasilia (UnB), Brazil. 
-The class also comes with a template for the various types of theses for 
-ungraduated and graduated programs at UnB.
+O pacote fornece uma classe baseada em abnTeX e compatível com pdflatex
+e bibtex para a preparação de teses para a Universidade de Brasília (UnB), Brasil.
+A classe também inclui um modelo para os diversos tipos de teses para os programas de pós-graduação e não-graduação da UnB.
 
-Please note that the documentation for the class and the comments in the 
-templates are all written in Portuguese, the language of the target 
-audience.
+Observe que a documentação da classe e os comentários nos modelos são todos escritos em português, o idioma do público-alvo.
 
-This package consists of the file unbtex.cls and the bibliographic style
-files located in the unbtexcite directory.
-Template files: unbtex-example.pdf, unbtex-example.tex, and files within 
-unbtex-example directory.
-To compile the unbtex-example.tex file you should call pdflatex, bibtex, 
+Este pacote consiste no arquivo unbtex.cls e nos arquivos de estilo bibliográfico
+localizados no diretório unbtexcite.
+
+Arquivos de modelo: unbtex-example.pdf, unbtex-example.tex e arquivos dentro do diretório
+unbtex-example.
+Para compilar o arquivo unbtex-example.tex, você deve chamar pdflatex, bibtex,
 pdflatex.
 
-Here is a history of changes:
-  1.0 (2021-12-15): Initial release
-  1.1 (2022-05-23): 
-    . Changed \codigocutter to \numerocutter 
-    . The argument of \preambulo command now admits a more general text
-  1.1.1 (2022-05-30):
-    . Changed abntex2 commands \orientador and \coorientador to do the 
-      same as \orient and \coorient
-    . Changed hyphenation for \preambulo text in portuguese when english 
-      language is selected
-  1.1.2 (2022-07-29):
-    . Page break on the copyright page has been corrected
-    . Documentation and comments improvements
-  1.1.3 (2022-09-04):
-    . Improved compilation time
-  1.2 (2022-10-05):
-    . The styles of Table of Contents (Sumário), List of Sybols (Lista de
-      símbolos), and List of Acronyms (Lista de abreviaturas) have been
-      modified
-    . A compilation problem with Tex Live 2022 that arises when microtype
-      package is used has been solved
-  1.2.1 (2023-06-15):
-    . Braces around equation numbering and language option for \autoref 
-      command has been corrected
-    . The code comments have been improved
-  1.3 (2023-10-17):
-    . To avoid the compilation time limit in Overleaf, the biblatex 
-      bibliography package has been replaced by the bibtex package, 
-      and the TikZ package for drawings no more has not been used
-    . The indentation of lists of figures and tables have been corrected
-    . The cleveref package is now being used for cross-references instead 
-      of the autoref command
-  1.3.1 (2023-10-18):
-    . The abtex2eng-alf.bst file was included to format bibliographic 
-      references in ABNT style for documents written in English
-  1.3.2 (2023-10-20):
-    . Documentation and comments improvements
-  1.3.3 (2023-11-02):
-    . The abtex2eng-alf.bst file has been replaced by the unbtexcite-en.bst
-      and unbtexcite-pt.bst files. These style files generate citations and
-      bibliographic references in accordance with updates to ABNT's NBR
-      6023:2018 and NBR 10520:2023 standards 
-    . Example and code comments improvements
-  1.4 (2023-11-15):
-    . Text main font based on stix2 package has been replace by stickstoo
-      package to improve math subscript spacing
-    . Sans serif font scale has been adjusted (helvet package)
-    . Typewriter font and scale have been changed (inconsolata package)
-    . Font size and line spread of verbatim environment have been modified
-    . Cross-references names for listing, algorithm, and theorem
-      environments have been corrected
-    . Indentation and line spacing of references list have been adjusted
-    . Figure and table numbering by chapter have been corrected
-  1.4.1 (2023-11-27):
-    . Figure captions have been moved to the top to comply with the ABNT
-      standard
-    . Spacing between figures/tables and captions/legends has been 
-      adjusted
-    . Spacing between figures/tables and text has been adjusted
-    . Spacing in list environments has been adjusted
-  1.4.2 (2023-12-15):
-    . Cross-references to the appendix and annex using the cref command
-      have been corrected
-    . The lists of abbreviations and acronyms, as well as the list of 
-      symbols, have been enhanced, and page numbering has been removed
-    . The chapters of the example document have been reorganized
-  1.4.3 (2023-12-22):
-    . Keywords in English have been included on the copyright page if 
-      the document is written in this language
-    . Examples of long tables and rotated tables have been included
-  1.4.4 (2024-01-05):
-    . The pdfpages package has been used to include pages from PDF 
-      documents
-    . The sans-serif font Helvetica (helvet package) has been replaced 
-      by the TeX Gyre Heros font (tgheros package)
-  1.5 (2024-02-02):
-    . ABNT style with a numeric citation scheme for bibliographic 
-      references has been included
-    . Added an option to the UnBTeX class for selecting the citation 
-      style (author-year or numeric)
-    . Added an option to the UnBTeX class for selecting the main language
-      of the text (Brazilian Portuguese or English)
-    . The font size of the title is automatically adjusted according to 
-      its length (and number of lines)
-    . Reorganization of the class source code and improvements in the 
-      comments
-    . The template text has been revised and improved
-  1.5.1 (2024-03-02):
-    . The approval sheet (folha de aprovação) has been changed
-    . The bottom margin size has been corrected to be consistently 
-      adhered to
-  1.5.2 (2024-07-04):
-    . The length of the footnote separator line has been corrected 
-      according to ABNT standards
-    . The left margin indentation of the citacao environment has been 
-      corrected according to ABNT standards
-    . The left margin indentation of the references can be adjusted by 
-      the user
-  1.5.3 (2024-10-07):
-    . A back cover has been added to the template
-    . Language options for the Babel package are now declared directly 
-      in the UnBTeX class file
-    . Included the DOI (Digital Object Identifier) field in bibliography
-      entries
-    . An environment for including charts (quadros) has been created, 
-      and the list of charts has been added
-    . Included list of algorithms and list of codes
-    . The packages algpseudocode and algorithm have been replaced by 
-      the algorithm2e package for including pseudocode
-    . The internal cross-referencing for tables created with the longtable 
-      package has been corrected
-    . An option has been added to the UnBTeX class to select the numbering 
-      style for figures, tables, etc., either by chapter or for the entire 
-      document
-    . The options article and twocolumn of the Memoir class have been
-      configured for use
-    . The example document has been updated and reorganized
-  1.5.4 (2025-01-10):
-    . Added an option to the UnBTeX class to enable back-referencing in
-      the bibliography
-  1.5.5 (2025-04-10):
-    . The microtype package has been configured to reduce compilation time
+Aqui está um histórico de alterações:
+- 1.0 (15/12/2021): 
+  - Versão inicial
+- 1.1 (23/05/2022):
+  - \codigocutter alterado para \numerocutter
+  - O argumento do comando \preambulo agora admite um texto mais geral.
+- 1.1.1 (30/05/2022):
+  - Os comandos abntex2 \orientador e \coorientador foram alterados para
+o mesmo que \orient e \coorient.
+  - Hifenização alterada para o texto \preambulo em português quando o idioma inglês é selecionado
+- 1.1.2 (29/07/2022):
+  - Quebra de página na página de direitos autorais foi corrigida
+  - Melhorias na documentação e nos comentários
+- 1.1.3 (04/09/2022):
+  - Tempo de compilação aprimorado
+- 1.2 (05/10/2022):
+  - Os estilos do Sumário, Lista de Símbolos e Lista de Abreviaturas foram
+  modificados
+  - Um problema de compilação com o Tex Live 2022 que surge quando o pacote microtype
+  é usado foi resolvido
+- 1.2.1 (15/06/2023):
+  - Chaves ao redor da numeração de equações e da opção de idioma para o comando \autoref
+  foram corrigidas
+  - Os comentários de código foram aprimorados
+- 1.3 (17/10/2023):
+  - Para evitar o limite de tempo de compilação no Overleaf, o pacote de bibliografia biblatex
+  foi substituído pelo pacote bibtex,
+  e o pacote TikZ para desenhos não foi mais utilizado.
+  - O recuo de listas de figuras e tabelas foi corrigido.
+  - O pacote cleveref agora está sendo usado para referências cruzadas em vez
+  do comando autoref.
+- 1.3.1 (18/10/2023):
+  - O arquivo abtex2eng-alf.bst foi incluído para formatar referências bibliográficas
+  no estilo ABNT para documentos escritos em inglês.
+- 1.3.2 (20/10/2023):
+  - Melhorias na documentação e nos comentários.
+- 1.3.3 (02/11/2023):
+  - O arquivo abtex2eng-alf.bst foi substituído pelos arquivos unbtexcite-en.bst
+  e unbtexcite-pt.bst. Esses arquivos de estilo geram citações e
+  referências bibliográficas de acordo com as atualizações das normas NBR
+  6023:2018 e NBR 10520:2023 da ABNT
+  - Melhorias nos exemplos e comentários de código
+- 1.4 (15/11/2023):
+  - A fonte principal do texto, baseada no pacote stix2, foi substituída pelo pacote stickstoo
+  para melhorar o espaçamento entre subscritos matemáticos
+  - A escala da fonte sem serifa foi ajustada (pacote helvet)
+  - A fonte e a escala da máquina de escrever foram alteradas (pacote inconsolata)
+  - O tamanho da fonte e a extensão das linhas do ambiente verbatim foram modificados
+  - Os nomes das referências cruzadas para os ambientes de listagem, algoritmo e teorema
+  foram corrigidos
+  - O recuo e o espaçamento entre linhas da lista de referências foram ajustados
+  - A numeração de figuras e tabelas por capítulo foi corrigida
+- 1.4.1 (27/11/2023):
+  - As legendas das figuras foram movidas para o topo para atender à norma ABNT
+  - O espaçamento entre figuras/tabelas e legendas/legendas foi
+  ajustado
+  - O espaçamento entre figuras/tabelas e texto foi ajustado
+  - O espaçamento em ambientes de lista foi ajustado
+- 1.4.2 (15/12/2023):
+  - As referências cruzadas para o apêndice e anexo usando o comando cref
+  foram corrigidas
+  - As listas de abreviações e siglas, bem como a lista de
+  símbolos, foram aprimoradas e a numeração de páginas foi removida
+  - Os capítulos do documento de exemplo foram reorganizados
+- 1.4.3 (22/12/2023):
+  - Palavras-chave em inglês foram incluídas na página de direitos autorais se
+  o documento estiver escrito neste idioma
+  - Exemplos de tabelas longas e tabelas rotacionadas foram incluídos.
+- 1.4.4 (05/01/2024):
+  - O pacote pdfpages foi usado para incluir páginas de documentos PDF.
+  - A fonte sem serifa Helvetica (pacote helvet) foi substituída pela fonte TeX Gyre Heros (pacote tgheros).
+- 1.5 (02/02/2024):
+  - O estilo ABNT com um esquema de citação numérica para referências bibliográficas foi incluído.
+  - Adicionada uma opção à classe UnBTeX para selecionar o estilo de citação (autor-ano ou numérico).
+  - Adicionada uma opção à classe UnBTeX para selecionar o idioma principal do texto (português brasileiro ou inglês).
+  - A fonte sans-serif Helvetica (pacote helvet) foi substituída
+  pela fonte TeX Gyre Heros (pacote tgheros)
+- 1.5 (02/02/2024):
+  - O estilo ABNT com esquema de citação numérica para referências bibliográficas
+  foi incluído
+  - Adicionada uma opção à classe UnBTeX para selecionar o estilo de citação
+  (autor-ano ou numérico)
+  - Adicionada uma opção à classe UnBTeX para selecionar o idioma principal
+  do texto (português brasileiro ou inglês)
+  - O tamanho da fonte do título é ajustado automaticamente de acordo
+  com seu comprimento (e número de linhas)
+  - Reorganização do código-fonte da classe e melhorias nos
+  comentários
+  - O texto do modelo foi revisado e aprimorado
+- 1.5.1 (02/03/2024):
+  - A folha de aprovação foi alterada
+  - O tamanho da margem inferior foi corrigido para ser consistente
+  aderido a
+- 1.5.2 (04/07/2024):
+  - O comprimento da linha separadora de notas de rodapé foi corrigido
+  de acordo com as normas da ABNT
+  - O recuo da margem esquerda do ambiente de citação foi
+  corrigido de acordo com as normas da ABNT
+  - O recuo da margem esquerda das referências pode ser ajustado
+  pelo usuário
+- 1.5.3 (07/10/2024):
+  - Uma contracapa foi adicionada ao modelo
+  - As opções de idioma para o pacote Babel agora são declaradas diretamente
+  no arquivo de classe UnBTeX
+  - Incluído o campo DOI (Identificador de Objeto Digital) nas entradas de bibliografia
+  - Um ambiente para inclusão de quadros (quadros) foi criado
+  e a lista de quadros foi adicionada
+  - Incluída a lista de algoritmos e a lista de códigos
+  - Os pacotes algpseudocode e algorithm foram substituídos pelo pacote algorithm2e para incluir pseudocódigo. A referência cruzada interna para tabelas criadas com o pacote longtable foi corrigida. Uma opção foi adicionada à classe UnBTeX para selecionar o estilo de numeração para figuras, tabelas, etc., por capítulo ou para todo o documento. As opções article e twocolumn da classe Memoir foram configuradas para uso. O documento de exemplo foi atualizado e reorganizado. 
+- 1.5.4 (10/01/2025):
+  - Adicionada uma opção à classe UnBTeX para habilitar a referência retroativa na bibliografia. 
+- 1.5.5 (10/04/2025):
+  - O pacote microtype foi configurado para reduzir o tempo de compilação.
 
 ## Overleaf
 
-The template is available on [Overleaf]
+O modelo está disponível em [Overleaf]
 (https://www.overleaf.com/latex/templates/unbtex-a-class-for-bachelor-master-and-doctoral-thesis-at-university-of-brasilia-unb/rfsxjkzprztc).
 
-## Licence
+## Licença
 
-This class file may be distributed and/or modified under the conditions
-of the LaTeX Project Public License, either version 1.3 of this license
-or (at your option) any later version. The latest version of this
-license is in:
+Este arquivo de classe pode ser distribuído e/ou modificado sob as condições
+da Licença Pública do Projeto LaTeX, seja a versão 1.3 desta licença
+ou (a seu critério) qualquer versão posterior. A versão mais recente desta
+licença está em:
 
 https://www.latex-project.org/lppl.txt
 
-and version 1.3 or later is part of all distributions of LaTeX version
-2005/12/01 or later.
+e a versão 1.3 ou posterior faz parte de todas as distribuições do LaTeX versão
+2005/12/01 ou posterior.
