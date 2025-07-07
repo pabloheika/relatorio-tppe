@@ -137,6 +137,19 @@ o mesmo que \orient e \coorient.
 O modelo está disponível em [Overleaf]
 (https://www.overleaf.com/latex/templates/unbtex-a-class-for-bachelor-master-and-doctoral-thesis-at-university-of-brasilia-unb/rfsxjkzprztc).
 
+## Uso com Makefile
+
+Para facilitar a compilação, um `Makefile` foi incluído. Os seguintes comandos estão disponíveis:
+
+- `make` ou `make all`: Compila o documento e gera o `unbtex-example.pdf`.
+- `make deps`: Instala as dependências do sistema (TeX Live) em distribuições baseadas em Debian/Ubuntu. Requer permissões de administrador (`sudo`). 
+
+> [!WARNING]  
+> São baixados 4GBs e usado 7GBs de espaço ápos a instalação das dependências.
+
+- `make clean`: Remove todos os arquivos gerados durante a compilação, como `.aux`, `.log`, e o próprio `.pdf`.
+- `make rebuild`: Executa `clean` e `all` em sequência, para uma compilação limpa do projeto.
+
 ## Licença
 
 Este arquivo de classe pode ser distribuído e/ou modificado sob as condições
